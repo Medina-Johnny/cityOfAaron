@@ -12,12 +12,13 @@ import byui.cit260.cityOfAaron.model.CropData;
 public class CropControl {
 //The buyLand method
 //Purpose: To Buy land
-//Parameters: the price of land, the number of acres to buy. And a reference to a CropData object
+//Parameters: the price of land, the number of acres to buy, People needed to tend the land. And a reference to a CropData object
 //Returns: the number of acres owned after the purchase
-//Pre-conditions: acres to buy must be >= 0
-//and bushels to spend <= the number of bushels owned
-// 
-  public int buyLand(int landPrice,int acresToBuy,int bushelsToSpend, CropData cropData){
+// Pre-conditions: acres to buy must be >= 0
+// and bushels to spend <= the number of bushels owned
+// People needed to tend <= Population
+    
+  public static int buyLand(int landPrice,int acresToBuy,int bushelsToSpend,int peopleNeededToTend, CropData cropData){
   
 
 //If acresToBuy < 0, return -1
@@ -40,6 +41,14 @@ if (bushelsToSpend > bushelsOwned)
 int owned = cropData.getAcresOwned();
 owned += acresToBuy;
 cropData.setAcresOwned(owned);
+
+//peopleNeededToTend <= Population
+peopleNeededToTend = owned/10;
+int population = cropData.getPopulation();
+if (peopleNeededToTend > population)
+    return -1;
+
+
 //bushelsOwned = bushelsOwned – (acresToBuy * landPrice)
 bushelsOwned -= bushelsToSpend;
 cropData.setWheatInStore(bushelsOwned);
