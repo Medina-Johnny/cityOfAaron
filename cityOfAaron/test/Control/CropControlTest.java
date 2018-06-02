@@ -9,9 +9,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Johnny Medina, Jorge Trujillo, Nelson Jimenez 
- * Last modified made in May 31, 2018
- */
+    * Johnny Medina, Jorge Trujillo, Nelson Jimenez 
+    * Last modified made in May 31, 2018
+    */
 
 public class CropControlTest {
     
@@ -22,7 +22,7 @@ public class CropControlTest {
     public void testBuyLand() {
         System.out.println("buyLand");
         
-        //Test case 1 (Valid, return expected result)
+    //Test case 1 (Valid, return expected result)
         System.out.println("/tTest Case 1");
         //Input variables
         CropData theCrops = new CropData();
@@ -43,7 +43,7 @@ public class CropControlTest {
         
 
         
-       //Test case 2 (Invalid, acers to buy is less than zero, return -1)
+    //Test case 2 (Invalid, acers to buy is less than zero, return -1)
         System.out.println("/tTest case 2");
         
         //Input variables
@@ -64,7 +64,7 @@ public class CropControlTest {
         
         
         
-        //Test case 3 (Invalid, not enough wheat in store to buy land, return -1)
+    //Test case 3 (Invalid, not enough wheat in store to buy land, return -1)
         System.out.println("/tTest case 3");
         
         //Input variables
@@ -85,7 +85,7 @@ public class CropControlTest {
         
         
         
-        //Test case 4 (Invalid, not enough people to tend the land, return -1)
+    //Test case 4 (Invalid, not enough people to tend the land, return -1)
         System.out.println("/tTest case 4");
         
         //Input variables
@@ -106,7 +106,7 @@ public class CropControlTest {
         
         
         
-        //Test case 5 (Boundary, one less acer would return error, return expected result)
+    //Test case 5 (Boundary, one less acer would return error, return expected result)
         System.out.println("/tTest case 5");
         
         //Input variables
@@ -127,7 +127,7 @@ public class CropControlTest {
         
         
         
-        //Test case 6 (Boundary, one more bushel needed would return error, return expected result)
+    //Test case 6 (Boundary, one more bushel needed would return error, return expected result)
         System.out.println("/tTest case 6");
         
         //Input variables
@@ -147,7 +147,7 @@ public class CropControlTest {
         assertEquals(expResult, result);
     }
     
-    /**
+/**
      * Test of feedPeople method.
      * Nelson Jimenez
      */
@@ -156,7 +156,7 @@ public class CropControlTest {
     public void testFeedPeople() {
         System.out.println("feedPeople");
         
-        //Test case 1(Valid,expected result)
+    //Test case 1(Valid,expected result)
         System.out.println("/tTest case 1");
         
         //Input veriables 
@@ -176,7 +176,7 @@ public class CropControlTest {
         
         
         
-        //Test case 2(Invalid, feed the people less thand 0, return -1)
+    //Test case 2(Invalid, feed the people less thand 0, return -1)
         System.out.println("/tTest case 2");
         
         //Input veriables 
@@ -194,7 +194,7 @@ public class CropControlTest {
         
         
         
-        //Test case 3(Invalid, wheat for peopl is more than wheat in store return -1)
+    //Test case 3(Invalid, wheat for peopl is more than wheat in store return -1)
         System.out.println("/tTest case 3");
         
         //Input veriables 
@@ -211,7 +211,7 @@ public class CropControlTest {
         assertEquals(expResult, result);
     
     
-       //Test case 4(Valid, boundries if 1 more wheat added return error, return expected)
+    //Test case 4(Valid, boundries if 1 more wheat added return error, return expected)
         System.out.println("/tTest case 4");
         
         //Input veriables 
@@ -229,7 +229,7 @@ public class CropControlTest {
     
         
         
-       //Test case 5(Valid, boundries if wheat for peopl one less return error)
+    //Test case 5(Valid, boundries if wheat for peopl one less return error)
         System.out.println("/tTest case 5");
         
         //Input veriables 
@@ -314,4 +314,121 @@ public class CropControlTest {
         //Test return to equal the expected results
         assertEquals(expResult, result);
     }    
+
+/**
+    * Johnny Medina 
+    * Last modified made in June 2, 2018
+    */
+    @Test
+    public void testPlantCrops() {
+        System.out.println("plantCrops");
+        
+    //Test case 1 (Valid, return expected result)
+        System.out.println("/tTest Case 1");
+        //Input variables
+        CropData theCrops = new CropData();
+        theCrops.setAcresOwned(3000);
+        theCrops.setAcresPlanted(0);
+        theCrops.setWheatInStore(1000);
+        int acresToPlant = 200;
+        
+        //Expected output variable
+        int expResult = 900;
+        
+        //Call the method
+        int result = CropControl.plantCrops(acresToPlant, theCrops);
+        
+        //test return to equal the expected result
+        assertEquals(expResult, result);
+
+        
+    //Test case 2 (Invalid, acers to buy is less than zero, return -1)
+        System.out.println("/tTest Case 2");
+        //Input variables
+        theCrops.setAcresOwned(3000);
+        theCrops.setAcresPlanted(0);
+        theCrops.setWheatInStore(1000);
+        acresToPlant = -5;
+        
+        //Expected output variable
+        expResult = -1;
+        
+        //Call the method
+        result = CropControl.plantCrops(acresToPlant, theCrops);
+        
+        //test return to equal the expected result
+        assertEquals(expResult, result);
+        
+        
+    //Test case 3 (Invalid, not enough acres owned to plant crops, return -1)
+        System.out.println("/tTest Case 3");
+        //Input variables
+        theCrops.setAcresOwned(3000);
+        theCrops.setAcresPlanted(0);
+        theCrops.setWheatInStore(1000);
+        acresToPlant = 3500;
+        
+        //Expected output variable
+        expResult = -1;
+        
+        //Call the method
+        result = CropControl.plantCrops(acresToPlant, theCrops);
+        
+        //test return to equal the expected result
+        assertEquals(expResult, result);
+        
+        
+    //Test case 4 (Invalid, not enough wheat in store to plant crops, return -1)
+        System.out.println("/tTest Case 4");
+        //Input variables
+        theCrops.setAcresOwned(3000);
+        theCrops.setAcresPlanted(0);
+        theCrops.setWheatInStore(1000);
+        acresToPlant = 2800;
+        
+        //Expected output variable
+        expResult = -1;
+        
+        //Call the method
+        result = CropControl.plantCrops(acresToPlant, theCrops);
+        
+        //test return to equal the expected result
+        assertEquals(expResult, result);
+        
+        
+    //Test case 5 (Boundary, one more acer would result in planting more bushels than owned and would return error, return expected result)
+        System.out.println("/tTest Case 5");
+        //Input variables
+        theCrops.setAcresOwned(3000);
+        theCrops.setAcresPlanted(0);
+        theCrops.setWheatInStore(1000);
+        acresToPlant = 2000;
+        
+        //Expected output variable
+        expResult = 0;
+        
+        //Call the method
+        result = CropControl.plantCrops(acresToPlant, theCrops);
+        
+        //test return to equal the expected result
+        assertEquals(expResult, result);
+        
+        
+    //Test case 6 (Boundary, one less acre would return error, return expected result)
+        System.out.println("/tTest Case 6");
+        //Input variables
+        theCrops.setAcresOwned(3000);
+        theCrops.setAcresPlanted(0);
+        theCrops.setWheatInStore(1000);
+        acresToPlant = 0;
+        
+        //Expected output variable
+        expResult = 1000;
+        
+        //Call the method
+        result = CropControl.plantCrops(acresToPlant, theCrops);
+        
+        //test return to equal the expected result
+        assertEquals(expResult, result);
+    }
 }

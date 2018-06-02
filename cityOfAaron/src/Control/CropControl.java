@@ -102,7 +102,7 @@ public class CropControl {
         cropData.setWheatForPeople(wheatNeedForPeople);
  
     //Return WheatOwned
-        return wheatOwned;
+    return wheatOwned;
  
  }   
 
@@ -118,16 +118,70 @@ public class CropControl {
 //Method signiture
 public static int setOffering(int offeringRate, CropData cropData){
     
-//If offeringRate < 0, return -1
-if (offeringRate < 0){
-    return -1;
+    //If offeringRate < 0, return -1
+    if (offeringRate < 0){
+        return -1;
+    }
+    //If offeringRate > 100, return -1
+    if (offeringRate >100){
+        return -1;
+    }
+    //return offeringRate
+    return offeringRate;
 }
-//If offeringRate > 100, return -1
-if (offeringRate >100){
-    return -1;
+ 
+/**
+ *Johnny Medina 
+ * Last modified made in June 01, 2018
+ */
+
+//The plantcrops method
+//Purpose: Set aside wheat to plant crops
+//Parameters: ,and a reference to a CropData object
+//Returns: the number of wheat owned after planting crops
+//Pre-conditions: acres to plant must be >= 0
+//and acres to plant must be <= the number of acres owned
+//wheat needed must be <= to wheat in storage
+//update acers owned and wheat in store.
+
+//method signiture
+public static int plantCrops(int acresToPlant, CropData cropData){
+
+    //Call from CropData    
+    int landOwned = cropData.getAcresOwned();
+    int plantedAcres = cropData.getAcresPlanted();
+    int wheatOwned = cropData.getWheatInStore();
+      
+    //bushelsNeeded = acresToPlant / 2
+    int bushelsNeeded = acresToPlant / 2;
+    
+    //if acresToPlant < 0, return -1
+    if(acresToPlant < 0) {
+        return -1;
+    }
+    
+    //if acresToPlant > acresOwned, return -1
+    if(acresToPlant > landOwned) {
+        return -1;
+    }
+    
+    //if bushelsNeeded > wheatInStore, return -1
+    if(bushelsNeeded > wheatOwned) {
+        return -1;
+    }
+    
+    //acresPlanted += acresToPlant
+    plantedAcres += acresToPlant;
+    //update acresPlanted
+    cropData.setAcresPlanted(plantedAcres);
+    
+    //wheatInStore -= bushelsNeeded
+    wheatOwned -= bushelsNeeded;
+    //***I am not sure if I need to update wheatInStore?***
+    //cropData.setWheatInStore(wheatOwned);
+    
+    //return wheatInStore
+    return wheatOwned;
 }
-//return offeringRate
-return offeringRate;
-}
-  
+
 }
