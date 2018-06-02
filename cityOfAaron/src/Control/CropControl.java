@@ -105,7 +105,7 @@ public class CropControl {
         return wheatOwned;
  
  }   
- 
+
 // Jorge Trujillo
 // Last modify date 01 June 2018
 //The setOffering method
@@ -129,5 +129,5 @@ if (offeringRate >100){
 //return offeringRate
 return offeringRate;
 }
-    
+  
 }

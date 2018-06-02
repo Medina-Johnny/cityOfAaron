@@ -246,5 +246,70 @@ public class CropControlTest {
         
     }
   
-     
+ /**
+     * Test of setOffering method, of class setOffering.
+     */
+    @Test
+    public void testSetOffering() {
+        System.out.println("setOffering");
+        //Test case 1 (Valid, return expected result)
+        System.out.println("/tTest Case 1");
+        //Input variables
+        CropData theCrops = new CropData();
+        int offeringRate = 50;
+        //Expected output variable
+        int expResult = 50;
+        //Call the method
+        int result = CropControl.setOffering(offeringRate, theCrops);
+        //Test return to equal the expected results
+        assertEquals(expResult, result);
+        
+    //Test case 2 (Invalid, setOffering < 0 return -1)
+        System.out.println("/tTest Case 2");
+        //Input variables
+        
+        offeringRate = -5;
+        //Expected output variable
+        expResult = -1;
+        //Call the method
+        result = CropControl.setOffering(offeringRate, theCrops);
+        //Test return to equal the expected results
+        assertEquals(expResult, result);
+        
+    //Test case 3 (Invalid, setOffering > 100 return -1)
+        System.out.println("/tTest Case 3");
+        //Input variables
+        
+        offeringRate = 300;
+        //Expected output variable
+        expResult = -1;
+        //Call the method
+        result = CropControl.setOffering(offeringRate, theCrops);
+        //Test return to equal the expected results
+        assertEquals(expResult, result);
+        
+    //Test case 4 (Boundary, setOffering = 0 return 0)
+        System.out.println("/tTest Case 4");
+        //Input variables
+        
+        offeringRate = 0;
+        //Expected output variable
+        expResult = 0;
+        //Call the method
+        result = CropControl.setOffering(offeringRate, theCrops);
+        //Test return to equal the expected results
+        assertEquals(expResult, result);
+    
+    //Test case 5 (Boundary, setOffering = 100 return 100)
+        System.out.println("/tTest Case 5");
+        //Input variables
+        
+        offeringRate = 100;
+        //Expected output variable
+        expResult = 100;
+        //Call the method
+        result = CropControl.setOffering(offeringRate, theCrops);
+        //Test return to equal the expected results
+        assertEquals(expResult, result);
+    }    
 }
