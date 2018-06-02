@@ -148,7 +148,8 @@ public class CropControlTest {
     }
     
     /**
-     * Test of feedPeople method, of class feedPeople.
+     * Test of feedPeople method.
+     * Nelson Jimenez
      */
     
     @Test
@@ -247,7 +248,8 @@ public class CropControlTest {
     }
   
  /**
-     * Test of setOffering method, of class setOffering.
+     * Test of setOffering method.
+     * Jorge Trujillo
      */
     @Test
     public void testSetOffering() {
