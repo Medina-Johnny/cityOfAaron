@@ -3,7 +3,7 @@
  */
 package Control;
 
-import static Control.CropControl.feedPeople;
+
 import byui.cit260.cityOfAaron.model.CropData;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -245,5 +245,6 @@ public class CropControlTest {
         assertEquals(expResult, result);
         
     }
-        
+  
+     
 }

@@ -105,4 +105,29 @@ public class CropControl {
         return wheatOwned;
  
  }   
-  }
+ 
+// Jorge Trujillo
+// Last modify date 01 June 2018
+//The setOffering method
+//Purpose: To set Offering rate
+//Parameters: The offering percentage to give for. And a reference to a CropData object
+//Returns: The offering rate.
+// Pre-conditions: offering rate >= 0
+// and offering rate <= 100
+
+//Method signiture
+public static int setOffering(int offeringRate, CropData cropData){
+    
+//If offeringRate < 0, return -1
+if (offeringRate < 0){
+    return -1;
+}
+//If offeringRate > 100, return -1
+if (offeringRate >100){
+    return -1;
+}
+//return offeringRate
+return offeringRate;
+}
+    
+}
