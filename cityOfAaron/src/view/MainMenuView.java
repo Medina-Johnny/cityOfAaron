@@ -8,8 +8,8 @@ package view;
 
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.Game;
-import java.util.Scanner;
 import cityOfAaron.CityOfAaron;
+import java.util.Scanner;
 
 
 
