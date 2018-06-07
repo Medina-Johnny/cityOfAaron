@@ -126,7 +126,10 @@ public static int setOffering(int offeringRate, CropData cropData){
     if (offeringRate >100){
         return -1;
     }
+    //update setOffering
+    cropData.setOffering(offeringRate);
     //return offeringRate
+    
     return offeringRate;
 }
  
