@@ -54,9 +54,10 @@ public class Game implements Serializable{
         return Objects.equals(this.thePlayer, other.thePlayer);
     }
 
-    public void setPlayer(Player thePlayer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setThePlayer(Player thePlayer) {
+        System.out.println("\nWelcome “ + name + “ have fun.");
     }
+
     
     
     
