@@ -28,15 +28,16 @@ public class CityOfAaron {
         CityOfAaron.theGame = theGame;
     }
 
+    
+    
     // main function - entry point for the program
     // runs the main menu
     public static void main(String[] args) {
        
-        
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenuView();
     }
-     
+    
     
     
     /*   //Pleyer Class Test
