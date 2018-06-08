@@ -54,11 +54,6 @@ public class Game implements Serializable{
         return Objects.equals(this.thePlayer, other.thePlayer);
     }
 
-    public void setThePlayer(Player thePlayer) {
-        System.out.println("\nWelcome “ + name + “ have fun.");
-    }
-
-    
     
     
 }

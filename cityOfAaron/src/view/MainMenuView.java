@@ -161,10 +161,10 @@ public class MainMenuView {
         thePlayer.setName(name);
 
         // Save a reference to the player object in the Game object
-        theGame.setThePlayer(thePlayer);
+        theGame.setThePlayer(name);
 
         // Display a welcome message
-        System.out.println("\nWelcome “ + name + “ have fun.");
+        System.out.println("\nWelcome " + name + " have fun.");
 
         // Display the Game menu
 
