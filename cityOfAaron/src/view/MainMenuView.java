@@ -16,8 +16,8 @@ import java.util.Scanner;
 public class MainMenuView {
     
     Scanner keyboard = new Scanner(System.in);
-    private String theMenu;
-    private int max;
+    private final String theMenu;
+    private final int max;
     
     
 
