@@ -2,7 +2,7 @@
 // Object of this class manages the help menu
 // Author: Johnny Medina, Nelson Jimenez, Jorge Trujillo
 // Date last modified: Jun 2018
-//-------------------------------------------------------------
+//-------------------------------------------------------
 package view;
 import java.util.Scanner;
 
