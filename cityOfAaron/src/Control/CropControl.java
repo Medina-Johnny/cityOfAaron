@@ -4,6 +4,8 @@
 package Control;
 
 import byui.cit260.cityOfAaron.model.CropData;
+import java.util.Random;
+
 
 /**
  *Johnny Medina, Jorge Trujillo, Nelson Jimenez 
@@ -186,5 +188,18 @@ public static int plantCrops(int acresToPlant, CropData cropData){
     //return wheatInStore
     return wheatOwned;
 }
+// calcLandCost() method
+// Purpose: Calculate a random land cost between 17 and 26 bushels/acre
+// Parameters: none
+// Returns: the land cost
+public static int calcLandCost()
+ {
+      int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;  
+      return landPrice;            
+ }
+// constants
+private static final int LAND_BASE = 17;
+private static final int LAND_RANGE = 10;
+private static Random random = new Random();
 
 }

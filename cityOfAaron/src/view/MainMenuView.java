@@ -6,6 +6,7 @@
 
 package view;
 
+import byui.cit260.cityOfAaron.model.CropData;
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.Game;
 import cityOfAaron.CityOfAaron;
@@ -114,7 +115,8 @@ public class MainMenuView {
                 startSavedGame();
                 break;
             case 3: // get help menu
-                displayHelpMenuView();
+                HelpMenuView hmv = new HelpMenuView();
+                hmv.displayHelpMenuView();
                 break;
             case 4: // save game
                 displaySaveGameView();
@@ -166,9 +168,31 @@ public class MainMenuView {
         // Display a welcome message
         System.out.println("\nWelcome " + name + " have fun.");
 
-        // Display the Game menu
+        // Create a CropData object, 
+       CropData cropData = new CropData();
 
+        // initialize it
+        cropData.setYear(0);
+        cropData.setPopulation(100);
+        cropData.setNewPeople(5);
+        cropData.setCropYield(3);
+        cropData.setNumberWhoDied(0);
+        cropData.setOffering(10);
+        cropData.setWheatInStore(2700);
+        cropData.setAcresOwned(1000);
+        cropData.setAcresPlanted(1000);
+        cropData.setHarvest(3000);
+        cropData.setOfferingBushels(300);
+        cropData.setAcresPlanted(1000); 
+        
+         // save a reference to it in the Game 
+        theGame.setCrop(cropData);
 
+// Display the Game menu
+                       
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayGameMenuView();
+ 
     }
  
     
@@ -194,17 +218,19 @@ public class MainMenuView {
     {
         System.out.println("\nDisplay help menu option selected.");
     }
-    
+        
     
     
     // The displaySaveMenuView method
     // Purpose: creates game object and displays the save game menu.
     // Parameters: none
     // Returns: none
-    // ===================================     
+    // ===================================
+    
+         
     public void displaySaveGameView()
     {
         System.out.println("\nDisplay save game option selected.");
     }
-
+    
 }
