@@ -12,6 +12,30 @@ import java.util.Random;
  * Last modified made in May 31, 2018
  */
 public class CropControl {
+//sellLand method
+// Purpose: Sell land  - subtracts from the acres owned
+// Parameters: the price of land, the number of acres to sell, and
+//     a reference to a CropData object 
+// Pre-conditions: acresToSell >= 0 and acresToSell <= acresOwned
+// Returns: the number of acres owned after the sale
+public static int sellLand(int landPrice, int acresToSell, CropData cropData){
+//if acresToSell < 0, return -1
+if(acresToSell < 0)
+    return -1;
+//if acresToSell > acresOwned, return -1
+int acresOwned = cropData.getAcresOwned();
+if(acresToSell > acresOwned)
+return -1;
+//acresOwned = acresOwned - acresToSell
+acresOwned -= acresToSell;
+cropData.setAcresOwned(acresOwned);
+//wheatInStore = wheatInStore + (acresToBuy x landPrice)
+int wheat = cropData.getWheatInStore();
+wheat-= (acresToSell * landPrice);
+cropData.setWheatInStore(wheat);
+//return acresOwned
+return acresOwned;
+}
 //The buyLand method
 //Purpose: To Buy land
 //Parameters: the price of land, the number of acres to buy,and a reference to a CropData object
@@ -21,7 +45,7 @@ public class CropControl {
 // People needed to tend the land must be<= the Population
 // update acers owned and wheat in store.
    
-//Method signiture    
+//Method signature    
  public static int buyLand(int landPrice,int acresToBuy,CropData cropData){
     
     //call from crapData
@@ -200,6 +224,6 @@ public static int calcLandCost()
 // constants
 private static final int LAND_BASE = 17;
 private static final int LAND_RANGE = 10;
-private static Random random = new Random();
+private static final Random random = new Random();
 
 }
