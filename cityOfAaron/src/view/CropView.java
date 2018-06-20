@@ -75,13 +75,13 @@ public static void feedPeopleView()
 }
 public static void plantCropsView()
 {
-    //
+    //Prompt the user to enter the number of land to plant
    System.out.print("\nHow many acres of land do you want to plant? "); 
     //  Get the user’s input and save it.
     int acresToPlant;
     acresToPlant = keyboard.nextInt();
     
-    // Call the sellLand( ) method in the control layer to buy the land
+    // Call the plantCrops( ) method in the control layer to plant the crops
     CropControl.plantCrops(acresToPlant, cropData);
 }
 public static void showStarvedView()
