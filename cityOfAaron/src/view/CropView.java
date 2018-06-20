@@ -67,22 +67,22 @@ public static void feedPeopleView()
 {
     //
     System.out.print("\nHow many bushels of grain do you want to give to the people? "); 
-    //  Get the user’s input and save it.
+    // Prompt the user to enter the number of bushel of graing to to give people 
     int wheatNeedForPeople;
     wheatNeedForPeople = keyboard.nextInt();
     cropData.setWheatForPeople(wheatNeedForPeople);
-    // Call the feedPeople( ) method in the control layer to buy the land
+    // Call the feedPeople( ) method in the control view feed people
     CropControl.feedPeople(cropData);
 }
 public static void plantCropsView()
 {
-    //
+    //Prompt the user to enter the number of land to plant
    System.out.print("\nHow many acres of land do you want to plant? "); 
     //  Get the user’s input and save it.
     int acresToPlant;
     acresToPlant = keyboard.nextInt();
     
-    // Call the sellLand( ) method in the control layer to buy the land
+    // Call the plantCrops( ) method in the control layer to plant the crops
     CropControl.plantCrops(acresToPlant, cropData);
 }
 public static void showStarvedView()
