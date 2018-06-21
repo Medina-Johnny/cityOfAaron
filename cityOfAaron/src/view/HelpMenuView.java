@@ -96,8 +96,8 @@ public int getMenuOption()
                 displayList();
                 break;
             case 6: // Return to the main menu
-                MainMenuView mmv = new MainMenuView();
-                mmv.displayMenuView();
+                MenuView mmv = new MainMenuView();
+                mmv.displayMenu();
         }
     }
     public void goalsTheGame()
