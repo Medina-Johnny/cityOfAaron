@@ -102,7 +102,7 @@ public class GameMenuView {
                         
             case 5: //Return to main menu
                 MainMenuView mmv = new MainMenuView();
-                mmv.displayMenuView();
+                mmv.displayMenu();
         }
     }
     
