@@ -1,7 +1,7 @@
 // The GameMenuView class - part of the view layer
 // Object of this class manages the game menu
-// Author: Johnny Medina, Nelson Jimenez, Jorge Trujillo
-// Date last modified: Jun 2018
+// Author:Nelson Jimenez, 
+// Date last modified: Jun 21, 2018
 //-------------------------------------------------------------
 package view;
 
