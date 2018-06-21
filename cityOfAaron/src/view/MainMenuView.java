@@ -62,7 +62,7 @@ public class MainMenuView extends MenuView {
                 break;
             case 3: // get help menu
                 HelpMenuView hmv = new HelpMenuView();
-                hmv.displayHelpMenuView();
+                hmv.displayMenu();
                 break;
             case 4: // save game
                 displaySaveGameView();
@@ -137,7 +137,7 @@ public class MainMenuView extends MenuView {
 // Display the Game menu
                        
         GameMenuView gmv = new GameMenuView();
-        gmv.displayGameMenuView();
+        gmv.displayMenu();
  
     }
  
