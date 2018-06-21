@@ -1,7 +1,7 @@
 // The PrintListMenuView class - part of the view layer
 // Object of this class manages the print list menu
-// Author: Johnny Medina, Nelson Jimenez, Jorge Trujillo
-// Date last modified: 13 Jun 2018
+// Author: Johnny Medina
+// Date last modified: 21 Jun 2018
 //-----------------------------------------------------------
 package view;
 import java.util.Scanner;
