@@ -40,8 +40,7 @@ public class GameMenuView extends MenuView{
                 theMap();
                 break;
             case 2: // get and start list menu
-                PrintListMenuView pmv = new PrintListMenuView();
-                pmv.displayMenu();
+                viewList();
                 break;
             case 3: // get new loction
                 newLocation();
@@ -67,6 +66,18 @@ public class GameMenuView extends MenuView{
         System.out.println("\nDisplay new location.");
     }
     
+    
+    public void viewList (){
+          
+    ListView lv = new ListView();
+    lv.displayMenu();
+
+    }
+    
+    
+    
+    
+        
     }
    
     
