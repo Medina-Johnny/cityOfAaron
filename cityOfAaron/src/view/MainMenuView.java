@@ -6,6 +6,7 @@
 
 package view;
 
+import Control.GameControl;
 import byui.cit260.cityOfAaron.model.CropData;
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.Game;
@@ -58,14 +59,14 @@ public class MainMenuView extends MenuView {
                 startNewGame();
                 break;
             case 2: // get and start a saved game
-                startSavedGame();
+                //startSavedGame();
                 break;
             case 3: // get help menu
                 HelpMenuView hmv = new HelpMenuView();
                 hmv.displayMenu();
                 break;
             case 4: // save game
-                displaySaveGameView();
+                //displaySaveGameView();
                 break;
             case 5:
                 System.out.println("Thanks for playing ... goodbye.");
@@ -88,8 +89,42 @@ public class MainMenuView extends MenuView {
     // ===================================     
     public void startNewGame()
     {
+     
+       // Show banner page
+        System.out.println(
+            "\n********************************************************\n" +
+            "* Welcome to the City of Aaron. You have been summoned *\n" +
+            "* by the High Priest to assume your role as ruler of   *\n" +
+            "* the city. Your responsibility is to buy land, sell   *\n" +
+            "* land, determine how much wheat to plant each year,   *\n" +
+            "* and how much to set aside to feed the people. You     *\n" +
+            "* will also be required to pay an annual tithe on the  *\n" +
+            "* that is harvested. If you fail to provide      *\n" +
+            "* enough wheat for the people to eat, people will die  *\n" +
+            "* and your workforce will be diminished. Plan very     *\n" +
+            "* carefully or you may find yourself in trouble with   *\n" +
+            "* the people. And oh, watch out for plagues and rats!  *\n" +
+            "********************************************************\n");  
+ 
+        // Get player name, create player object, and save it in the Game
+        String name;
+        System.out.println("\nPlease type in your first name: ");
+        name = keyboard.next();
+                    
+        // welcome message
+        System.out.println("\nWelcome " + name + ", have fun playing.");
+        
+        // call the createNewGame( ) method. Pass the name as a parameter
+         GameControl.createNewGame(name);
+        
+        //show the game menu
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenu();
+
+       
+        
         //Create a new Game object.
-        Game theGame = new Game();
+        /*Game theGame = new Game();
 
         // Save a reference to it in the GameProject class.
         CityOfAaron.setTheGame(theGame);
@@ -178,5 +213,7 @@ public class MainMenuView extends MenuView {
     {
         System.out.println("\nDisplay save game option selected.");
     }
-    
+  */  
+
+}
 }

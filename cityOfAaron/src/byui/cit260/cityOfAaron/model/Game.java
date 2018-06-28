@@ -4,6 +4,7 @@
  */
 package byui.cit260.cityOfAaron.model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -12,18 +13,18 @@ import java.util.Objects;
 public class Game implements Serializable{
     
     
-    private String thePlayer;
+    private Player thePlayer;
 
     
     public Game() {
     }
 
     
-    public String getThePlayer() {
+    public Player getThePlayer() {
         return thePlayer;
     }
 
-    public void setThePlayer(String thePlayer) {
+    public void setThePlayer(Player thePlayer) {
         this.thePlayer = thePlayer;
     }
     
@@ -71,5 +72,20 @@ private CropData cropData=null;
         cropData = _cropRef;
     }
     
+   private Map map=null;  
     
+   public void setMap(Map _mapRef){
+       
+   //These data equal the map 
+   map = _mapRef;
+      
+   }
+
+ private Animals animal=null;
+ 
+ public void setAnimals(ArrayList<ListItem> animals) {
+       //animal=animals;
+    }
+
+
 }
