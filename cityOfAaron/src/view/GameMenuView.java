@@ -47,8 +47,8 @@ public class GameMenuView extends MenuView{
                 newLocation();
                 break;
             case 4: // manage the crops
-                CropView msv = new CropView();
-                CropView.runCropsView();
+             //   CropView msv = new CropView();
+              //  CropView.runCropsView();
                 break;
                         
             case 5: //Return to main menu
