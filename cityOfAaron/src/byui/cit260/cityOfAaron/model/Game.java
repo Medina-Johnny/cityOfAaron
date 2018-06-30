@@ -12,9 +12,11 @@ import java.util.Objects;
  */
 public class Game implements Serializable{
     
-    
+    private ArrayList<ListItem> animals;
+   private ArrayList<ListItem> tools;
+   private ArrayList<ListItem> provisions;
     private Player thePlayer;
-
+    private Map theMap;
     
     public Game() {
     }
@@ -72,20 +74,38 @@ private CropData cropData=null;
         cropData = _cropRef;
     }
     
-   private Map map=null;  
-    
-   public void setMap(Map _mapRef){
-       
-   //These data equal the map 
-   map = _mapRef;
-      
-   }
-
- private Animals animal=null;
- 
- public void setAnimals(ArrayList<ListItem> animals) {
-       //animal=animals;
+   public Map getTheMap() {
+        return theMap;
     }
 
+    public void setTheMap(Map theMap) {
+        this.theMap = theMap;
+    }
+
+ 
+ 
+ public ArrayList<ListItem> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<ListItem> animals) {
+        this.animals = animals;
+    }
+
+    public ArrayList<ListItem> getTools() {
+        return tools;
+    }
+
+    public void setTools(ArrayList<ListItem> tools) {
+        this.tools = tools;
+    }
+
+    public ArrayList<ListItem> getProvisions() {
+        return provisions;
+    }
+
+    public void setProvisions(ArrayList<ListItem> provisions) {
+        this.provisions = provisions;
+    }
 
 }

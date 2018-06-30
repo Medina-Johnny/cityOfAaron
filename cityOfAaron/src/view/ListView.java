@@ -4,15 +4,19 @@
  * and open the template in the editor.
  */
 package view;
-import byui.cit260.cityOfAaron.model.ListItem;
+
+import Control.*;
+import byui.cit260.cityOfAaron.model.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
  * @author JIMENEZ'S
  */
 public class ListView extends MenuView {
-  
-    
+  private ArrayList<ListItem> animals;
+   private ArrayList<ListItem> tools;
+   private ArrayList<ListItem> provisions; 
     
     
     Scanner keyboard = new Scanner(System.in);
@@ -46,24 +50,40 @@ public class ListView extends MenuView {
                 displayAnimalsList();
                 break;
             case 3: // get new loction
-                //newLocation();
+                displayToolsList();
                 break;
             case 4: // manage the crops
-                //CropView msv = new CropView();
-                //CropView.runCropsView();
+                displayProvisionsList();
                 break;
                         
             case 5: //Return to main menu
-                MainMenuView mmv = new MainMenuView();
-                mmv.displayMenu();
+                GameMenuView gmv = new GameMenuView();
+                gmv.displayMenu();
         }
     }
     
     public void displayAnimalsList(){
-    //ListItem li = animals.get(1);   // get the list item from the ArrayList
-   //System.out.println(li.getName( ) + ": " + li.getNumber( ) );
-    
-    
-    
+        
+        
+       //for (int i=0;i<animals.size();i++){
+          // ListItem li = animals.get(i);
+         //  System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+           
+      // }
+       GameControl gc = new GameControl();
+       GameControl.createAnimalList();
     }
+    
+    public void displayToolsList(){
+        GameControl gc = new GameControl();
+        GameControl.createToolList();
+    }
+    public void displayProvisionsList(){
+        GameControl gc = new GameControl();
+        GameControl.createProvisionList();
+    }
+    
+    
+    
+    
 }

@@ -5,6 +5,7 @@
 //-------------------------------------------------------------
 package view;
 
+import Control.*;
 import java.util.Scanner;
 
 
@@ -46,8 +47,7 @@ public class GameMenuView extends MenuView{
                 newLocation();
                 break;
             case 4: // manage the crops
-             //   CropView msv = new CropView();
-              //  CropView.runCropsView();
+               cropView();
                 break;
                         
             case 5: //Return to main menu
@@ -58,7 +58,8 @@ public class GameMenuView extends MenuView{
     
     public void theMap()
     {
-        System.out.println("\nDisplay the map.");
+        GameControl gc = new GameControl();
+        GameControl.createMap();
     }
     
     public void newLocation()
@@ -71,6 +72,13 @@ public class GameMenuView extends MenuView{
           
     ListView lv = new ListView();
     lv.displayMenu();
+
+    }
+    
+    public void cropView (){
+    //CropView crop = new CropView();
+    //CropView.runCropsView();      
+    
 
     }
     

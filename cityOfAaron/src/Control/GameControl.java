@@ -19,7 +19,8 @@ public class GameControl {
    private static final int MAX_COL = 5;
     
   // reference to a Game object
-   private static Game theGame;  
+   private static Game theGame; 
+   
    
    
   public static void createNewGame(String pName){
@@ -33,13 +34,16 @@ public class GameControl {
            thePlayer.setName(pName);
            theGame.setThePlayer(thePlayer); 
 
-       
-        
         // create the list of animals
+        //createAnimalList();
         // create the list of tools
+        //createToolList();
         // create the list of provisions
+        //createProvisionList();
+        // create the Locations and the Map object  
+        createMap();
         
-        // create the Locations and the Map object        
+        createCropDataObject();
     }
        
        // create the CropData object
@@ -68,13 +72,19 @@ public class GameControl {
     {
         ArrayList<ListItem> animals = new ArrayList<ListItem>();
         
-        animals.add(new ListItem("cows", 12));
-        animals.add(new ListItem("horses", 3));
-        animals.add(new ListItem("pigs", 7));
-        animals.add(new ListItem("goats", 4));
+        animals.add(new ListItem("chickens", 40));
+        animals.add(new ListItem("dogs", 4));
+        animals.add(new ListItem("sheeps", 20));
+        animals.add(new ListItem("oxen", 8));
        
         theGame.setAnimals(animals);
+        int size= animals.size();
+        for (int i=0; i<animals.size(); i++){
+        ListItem li = animals.get(i);   // get the list item from the ArrayList
+        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+        }
     }
+
 
     // The createMap method
     // Purpose: creates the location objects and the map
@@ -114,8 +124,18 @@ public class GameControl {
  loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
  loc.setSymbol("!!!");
  theMap.setLocation(0, 2, loc);
+ // define the string for a barn location
+ String barn = "\nYou are in the barn." +
+ "\nHere is all the wheat that you need to live" +
+ "\nplease use it carefully."; 
 
-    theGame.setMap(theMap);
+ // set a barn location.
+ loc = new Location();
+ loc.setDescription(barn);
+ loc.setSymbol("$$$");
+ theMap.setLocation(2, 2, loc);
+
+    theGame.setTheMap(theMap);
     }
 
   public static void createToolList()
@@ -127,7 +147,13 @@ public class GameControl {
         tools.add(new ListItem("axe", 7));
         tools.add(new ListItem("handsaw", 4));
        
-        //theGame.setTools(tools);
+        theGame.setTools(tools);
+        int size= tools.size();
+        for (int i=0; i<tools.size(); i++){
+        ListItem li = tools.get(i);   // get the list item from the ArrayList
+        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+    
+        }
     }  
     
     
@@ -140,7 +166,13 @@ public class GameControl {
         provisions.add(new ListItem("egg", 7));
         provisions.add(new ListItem("bread", 4));
        
-       // theGame.setProvisions(provisions);
+        theGame.setProvisions(provisions);
+        int size= provisions.size();
+        for (int i=0; i<provisions.size(); i++){
+        ListItem li = provisions.get(i);   // get the list item from the ArrayList
+        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+    
+        }
     }
     
     
