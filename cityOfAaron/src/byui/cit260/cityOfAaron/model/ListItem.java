@@ -16,12 +16,10 @@ public class ListItem implements Serializable {
     private String name;
     private int number;
     
-    public ListItem() {
-    }
-
-    public ListItem(String cows, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   public ListItem(String name, int number) {
+   this.name = name;
+   this.number = number;
+  }
 
     public String getName() {
         return name;

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import byui.cit260.cityOfAaron.model.ListItem;
 import java.util.Scanner;
 /**
  *
@@ -31,6 +32,9 @@ public class ListView extends MenuView {
         5);
     }
     
+    
+    
+    
     @Override public void doAction(int option)
     {
         switch(option)
@@ -39,7 +43,7 @@ public class ListView extends MenuView {
                 //theMap();
                 break;
             case 2: // get and start list menu
-                //viewList();
+                displayAnimalsList();
                 break;
             case 3: // get new loction
                 //newLocation();
@@ -55,5 +59,11 @@ public class ListView extends MenuView {
         }
     }
     
+    public void displayAnimalsList(){
+    //ListItem li = animals.get(1);   // get the list item from the ArrayList
+   //System.out.println(li.getName( ) + ": " + li.getNumber( ) );
     
+    
+    
+    }
 }

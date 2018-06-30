@@ -118,4 +118,31 @@ public class GameControl {
     theGame.setMap(theMap);
     }
 
+  public static void createToolList()
+    {
+        ArrayList<ListItem> tools = new ArrayList<ListItem>();
+        
+        tools.add(new ListItem("hammer", 3));
+        tools.add(new ListItem("shovel", 4));
+        tools.add(new ListItem("axe", 7));
+        tools.add(new ListItem("handsaw", 4));
+       
+        //theGame.setTools(tools);
+    }  
+    
+    
+    public static void createProvisionList()
+    {
+        ArrayList<ListItem> provisions = new ArrayList<ListItem>();
+        
+        provisions.add(new ListItem("meat", 12));
+        provisions.add(new ListItem("milk", 3));
+        provisions.add(new ListItem("egg", 7));
+        provisions.add(new ListItem("bread", 4));
+       
+       // theGame.setProvisions(provisions);
+    }
+    
+    
+    
 }
