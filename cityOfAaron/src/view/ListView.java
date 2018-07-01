@@ -78,6 +78,7 @@ public class ListView extends MenuView {
         GameControl gc = new GameControl();
         GameControl.createToolList();
     }
+    
     public void displayProvisionsList(){
         GameControl gc = new GameControl();
         GameControl.createProvisionList();
