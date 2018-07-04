@@ -83,6 +83,7 @@ public class ListView extends MenuView {
     
         }
     }
+    
     public void displayProvisionsList(){
         
         provisions = theGame.getProvisions();
