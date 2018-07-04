@@ -36,7 +36,7 @@ public class CropControlTest {
         int expResult = 2850;
         
         //Call the method
-       // void result = CropControl.buyLand(landPrice, acresToBuy, theCrops);
+        //void result = CropControl.buyLand(landPrice, acresToBuy, theCrops);
         
         //test return to equal the expected result
         //assertEquals(expResult, result);

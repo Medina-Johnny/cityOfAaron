@@ -67,8 +67,8 @@ public static void runCropsView()
 
     // add calls to the other crop view methods
     sellLandView();
-    //feedPeopleView();
-    //plantCropsView();
+    feedPeopleView();
+    plantCropsView();
     // as they are written
 }
 public static void sellLandView()

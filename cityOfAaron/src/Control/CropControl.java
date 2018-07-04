@@ -70,7 +70,7 @@ return acresOwned;
 
     //If bushelsToSpend > bushelsOwned, 
     if (bushelsToSpend > bushelsOwned){
-        throw new CropException ("You don't have sufficient wheat");
+        throw new CropException ("There is insufficient wheat to buy this much land");
     }
     
     //peopleNeededToTend > Population, 
