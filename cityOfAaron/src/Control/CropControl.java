@@ -4,6 +4,7 @@
 package Control;
 
 import byui.cit260.cityOfAaron.model.CropData;
+import exceptions.CropException;
 import java.util.Random;
 
 
@@ -46,7 +47,8 @@ return acresOwned;
 // update acers owned and wheat in store.
    
 //Method signature    
- public static int buyLand(int landPrice,int acresToBuy,CropData cropData){
+ public static void buyLand(int landPrice,int acresToBuy,CropData cropData)throws CropException
+ {
     
     //call from crapData
     int bushelsOwned = cropData.getWheatInStore();
@@ -61,19 +63,19 @@ return acresOwned;
    
     
     
-    //If acresToBuy < 0, return -1
+    //If acresToBuy < 0, 
     if (acresToBuy < 0){
-        return -1;
+        throw new CropException ("A negative value is input");
     }
 
-    //If bushelsToSpend > bushelsOwned, return -1
+    //If bushelsToSpend > bushelsOwned, 
     if (bushelsToSpend > bushelsOwned){
-        return -1;
+        throw new CropException ("You don't have sufficient wheat");
     }
     
-    //peopleNeededToTend > Population, return -1
+    //peopleNeededToTend > Population, 
     if (peopleNeededToTend > population){
-        return -1;
+        throw new CropException ("You don't have sufficient people");
     }
 
     //Update wheatInStore
@@ -84,8 +86,7 @@ return acresOwned;
     landOwned += acresToBuy;
     cropData.setAcresOwned(landOwned);
     
-    //return landOwned
-    return landOwned;
+   
   }
  
 

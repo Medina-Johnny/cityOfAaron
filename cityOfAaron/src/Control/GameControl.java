@@ -35,11 +35,11 @@ public class GameControl {
            theGame.setThePlayer(thePlayer); 
 
         // create the list of animals
-        //createAnimalList();
+        createAnimalList();
         // create the list of tools
-        //createToolList();
+        createToolList();
         // create the list of provisions
-        //createProvisionList();
+        createProvisionList();
         // create the Locations and the Map object  
         createMap();
         
@@ -78,11 +78,7 @@ public class GameControl {
         animals.add(new ListItem("oxen", 8));
        
         theGame.setAnimals(animals);
-        int size= animals.size();
-        for (int i=0; i<animals.size(); i++){
-        ListItem li = animals.get(i);   // get the list item from the ArrayList
-        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
-        }
+        
     }
 
 
@@ -148,12 +144,8 @@ public class GameControl {
         tools.add(new ListItem("handsaw", 4));
        
         theGame.setTools(tools);
-        int size= tools.size();
-        for (int i=0; i<tools.size(); i++){
-        ListItem li = tools.get(i);   // get the list item from the ArrayList
-        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
-    
-        }
+        
+        
     }  
     
     
@@ -167,12 +159,8 @@ public class GameControl {
         provisions.add(new ListItem("bread", 4));
        
         theGame.setProvisions(provisions);
-        int size= provisions.size();
-        for (int i=0; i<provisions.size(); i++){
-        ListItem li = provisions.get(i);   // get the list item from the ArrayList
-        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
-    
-        }
+           
+        
     }
     
     

@@ -7,6 +7,7 @@ package view;
 
 import Control.*;
 import byui.cit260.cityOfAaron.model.*;
+import cityOfAaron.CityOfAaron;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
@@ -17,7 +18,7 @@ public class ListView extends MenuView {
   private ArrayList<ListItem> animals;
    private ArrayList<ListItem> tools;
    private ArrayList<ListItem> provisions; 
-    
+   Game theGame = CityOfAaron.getTheGame(); 
     
     Scanner keyboard = new Scanner(System.in);
     
@@ -64,26 +65,31 @@ public class ListView extends MenuView {
     
     public void displayAnimalsList(){
         
-        
-       //for (int i=0;i<animals.size();i++){
-          // ListItem li = animals.get(i);
-         //  System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+        animals = theGame.getAnimals();
+       for (int i=0;i<animals.size();i++){
+         ListItem li = animals.get(i);
+         System.out.println(li.getName( ) + ": " + li.getNumber( ) );
            
-      // }
-       GameControl gc = new GameControl();
-       GameControl.createAnimalList();
+       }
+      
     }
     
     public void displayToolsList(){
-        GameControl gc = new GameControl();
-        GameControl.createToolList();
+       
+        tools = theGame.getTools();
+        for (int i=0; i<tools.size(); i++){
+        ListItem li = tools.get(i);   // get the list item from the ArrayList
+        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+    
+        }
     }
     public void displayProvisionsList(){
-        GameControl gc = new GameControl();
-        GameControl.createProvisionList();
+        
+        provisions = theGame.getProvisions();
+        for (int i=0; i<provisions.size(); i++){
+        ListItem li = provisions.get(i);   // get the list item from the ArrayList
+        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
     }
     
-    
-    
-    
+   }
 }
