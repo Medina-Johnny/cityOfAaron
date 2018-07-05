@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-1
-
+/*CropException() class file for the cityOfAaron project 
+ *CIT-260 Brother Devry
+ *July 5,2018
+ *Team members: Johnny Medina, Nelson Jimenez, Jorge Trujillo
  */
 package exceptions;
 
