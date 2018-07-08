@@ -19,23 +19,22 @@ public class CropControl {
 //     a reference to a CropData object 
 // Pre-conditions: acresToSell >= 0 and acresToSell <= acresOwned
 // Returns: the number of acres owned after the sale
-public static int sellLand(int landPrice, int acresToSell, CropData cropData){
-//if acresToSell < 0, return -1
+public static void sellLand(int landPrice, int acresToSell, CropData cropData)throws CropException
+{
+//if acresToSell < 0, return Exception
 if(acresToSell < 0)
-    return -1;
-//if acresToSell > acresOwned, return -1
+    throw new CropException ("A negative value is input");
+//if acresToSell > acresOwned, return Exception
 int acresOwned = cropData.getAcresOwned();
 if(acresToSell > acresOwned)
-return -1;
+throw new CropException ("You don't have this amount of acres to sell");
 //acresOwned = acresOwned - acresToSell
 acresOwned -= acresToSell;
 cropData.setAcresOwned(acresOwned);
-//wheatInStore = wheatInStore + (acresToBuy x landPrice)
+//wheatInStore = wheatInStore + (acresToSell x landPrice)
 int wheat = cropData.getWheatInStore();
-wheat-= (acresToSell * landPrice);
+wheat+= (acresToSell * landPrice);
 cropData.setWheatInStore(wheat);
-//return acresOwned
-return acresOwned;
 }
 //The buyLand method
 //Purpose: To Buy land
