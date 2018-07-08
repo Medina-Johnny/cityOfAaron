@@ -67,7 +67,7 @@ public static void runCropsView()
 
     // add calls to the other crop view methods
     sellLandView();
-    feedPeopleView();
+    //feedPeopleView();
     plantCropsView();
     // as they are written
 }
@@ -98,7 +98,7 @@ public static void sellLandView()
      }while(paramsNotOkay);
     
 }
-public static void feedPeopleView()
+public static void feedPeopleView() throws CropException
 {
     //
     System.out.print("\nHow many bushels of grain do you want to give to the people? "); 
@@ -108,6 +108,25 @@ public static void feedPeopleView()
     cropData.setWheatForPeople(wheatNeedForPeople);
     // Call the feedPeople( ) method in the control view feed people
     CropControl.feedPeople(cropData);
+    int wheatOwned;
+boolean paramsNotOkay;
+     do
+     {
+         paramsNotOkay=false;
+        System.out.print("\nbushell of wheat wants to give to the people? "); 
+        wheatOwned = keyboard.nextInt();
+        try
+        {
+          CropControl.feedPeople( cropData);  
+        }
+        catch (CropException e)
+                 {
+                  System.out.println("I am sorry master, I cannot do this.");
+                  System.out.println(e.getMessage());
+                  paramsNotOkay = true;   
+                 }
+     }while(paramsNotOkay);
+    
 }
 public static void plantCropsView()
 {

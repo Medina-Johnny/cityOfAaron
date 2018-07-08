@@ -102,7 +102,7 @@ cropData.setWheatInStore(wheat);
 
 
 //Method signiture    
- public static int feedPeople(CropData cropData){    
+ public static int feedPeople(CropData cropData)throws CropException{    
 
     //Call from CropData    
       int wheatOwned = cropData.getWheatInStore();
@@ -112,11 +112,13 @@ cropData.setWheatInStore(wheat);
     //If wheatForPeople < 0, return -1 
          if(wheatNeedForPeople < 0){     
          return -1;
+         //throw new CropException ("A negative value is input");
          }
  
     //If wheatForPeople> wheatInStore, return -1
          if(wheatNeedForPeople > wheatOwned){
             return -1;
+         //throw new CropException ("You don't have enough wheat to give");
          }
  
 
