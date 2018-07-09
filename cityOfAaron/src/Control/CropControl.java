@@ -163,7 +163,7 @@ public static int setOffering(int offeringRate, CropData cropData){
  
 /**
  *Johnny Medina 
- * Last modified made in June 01, 2018
+ * Last modified made in July 09, 2018
  */
 
 //The plantcrops method
@@ -176,7 +176,7 @@ public static int setOffering(int offeringRate, CropData cropData){
 //update acers owned and wheat in store.
 
 //method signiture
-public static int plantCrops(int acresToPlant, CropData cropData){
+public static void plantCrops(int acresToPlant, CropData cropData)throws CropException{
 
     //Call from CropData    
     int landOwned = cropData.getAcresOwned();
@@ -188,17 +188,17 @@ public static int plantCrops(int acresToPlant, CropData cropData){
     
     //if acresToPlant < 0, return -1
     if(acresToPlant < 0) {
-        return -1;
+        throw new CropException ("Input cannot be a negative value");
     }
     
     //if acresToPlant > acresOwned, return -1
     if(acresToPlant > landOwned) {
-        return -1;
+        throw new CropException ("You don't have enough land to plant");
     }
     
     //if bushelsNeeded > wheatInStore, return -1
     if(bushelsNeeded > wheatOwned) {
-        return -1;
+        throw new CropException ("You don't have enough wheat in store");
     }
     
     //acresPlanted += acresToPlant
@@ -212,7 +212,7 @@ public static int plantCrops(int acresToPlant, CropData cropData){
     //cropData.setWheatInStore(wheatOwned);
     
     //return wheatInStore
-    return wheatOwned;
+    //return wheatOwned;
 }
 // calcLandCost() method
 // Purpose: Calculate a random land cost between 17 and 26 bushels/acre

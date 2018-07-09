@@ -130,14 +130,28 @@ boolean paramsNotOkay;
 }
 public static void plantCropsView()
 {
-    //Prompt the user to enter the number of land to plant
-   System.out.print("\nHow many acres of land do you want to plant? "); 
-    //  Get the user’s input and save it.
     int acresToPlant;
-    acresToPlant = keyboard.nextInt();
+    boolean paramsNotOkay;
+    do
+    {
+        paramsNotOkay=false;
+        //Prompt the user to enter the number of land to plant
+        System.out.print("\nHow many acres of land do you want to plant? "); 
+        //  Get the user’s input and save it.
     
-    // Call the plantCrops( ) method in the control layer to plant the crops
-    CropControl.plantCrops(acresToPlant, cropData);
+        acresToPlant = keyboard.nextInt();
+        try
+        {
+            // Call the plantCrops( ) method in the control layer to plant the crops
+            CropControl.plantCrops(acresToPlant, cropData);
+        }
+        catch (CropException e)
+                 {
+                  System.out.println("I am sorry master, I cannot do this.");
+                  System.out.println(e.getMessage());
+                  paramsNotOkay = true;   
+                 }
+    }while(paramsNotOkay);
 }
 public static void showStarvedView()
 {
