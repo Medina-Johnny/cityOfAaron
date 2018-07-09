@@ -4,7 +4,7 @@
 //-------------------------------------------------------------
 package view;
 
-import Control.CropControl;
+import Control.*;
 import byui.cit260.cityOfAaron.model.*;
 import cityOfAaron.CityOfAaron;
 import exceptions.CropException;
@@ -67,7 +67,7 @@ public static void runCropsView()
 
     // add calls to the other crop view methods
     sellLandView();
-    //feedPeopleView();
+    feedPeopleView();
     plantCropsView();
     // as they are written
 }
@@ -98,28 +98,28 @@ public static void sellLandView()
      }while(paramsNotOkay);
     
 }
-public static void feedPeopleView() throws CropException
+public static void feedPeopleView() 
 {
     //
-    System.out.print("\nHow many bushels of grain do you want to give to the people? "); 
+     
     // Prompt the user to enter the number of bushel of graing to to give people 
-    int wheatNeedForPeople;
-    wheatNeedForPeople = keyboard.nextInt();
-    cropData.setWheatForPeople(wheatNeedForPeople);
+    
+    
+    
     // Call the feedPeople( ) method in the control view feed people
-    CropControl.feedPeople(cropData);
-    int wheatOwned;
+    
+    int wheatNeedForPeople;
 boolean paramsNotOkay;
      do
      {
          paramsNotOkay=false;
-        System.out.print("\nbushell of wheat wants to give to the people? "); 
-        wheatOwned = keyboard.nextInt();
+        System.out.print("\nHow many bushels of grain do you want to give to the people? ");
+        wheatNeedForPeople = keyboard.nextInt();
         try
         {
-          CropControl.feedPeople( cropData);  
+          CropControl.feedPeople(wheatNeedForPeople,cropData); 
         }
-        catch (CropException e)
+       catch (CropException e)
                  {
                   System.out.println("I am sorry master, I cannot do this.");
                   System.out.println(e.getMessage());
