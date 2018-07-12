@@ -172,12 +172,9 @@ public class GameControl{
     // Parameters: the file path
     // Returns: none
     // Side Effect: the game reference in the driver is updated
-    public static void getSavedGame(String filePath)
-    {
+    public static void getSavedGame(String filePath){
         Game theGame = null;
-        
-        try (FileInputStream fips = new FileInputStream(filePath))
-        {
+        try (FileInputStream fips = new FileInputStream(filePath)){
             ObjectInputStream input = new ObjectInputStream(fips);
             theGame = (Game)  input.readObject();
             CityOfAaron.setTheGame(theGame);
@@ -193,10 +190,8 @@ public class GameControl{
     // Returns: none
     // Side Effect: the game reference in the driver is updated 
     }
-    public static void setSaveGame(String filePath)
-    {
+    public static void setSaveGame(String filePath){
         Game theGame = null;
-        
         try (FileOutputStream fips = new FileOutputStream(filePath))
         {
             ObjectOutputStream output = new ObjectOutputStream(fips);
@@ -205,7 +200,7 @@ public class GameControl{
         }
         catch(Exception e)
         {
-            System.out.println("\nThere was an error reading the saved game file");
+            System.out.println("\nThere was an error writing the saved game file");
         }
     }
     

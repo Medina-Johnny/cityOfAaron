@@ -69,7 +69,7 @@ public class MainMenuView extends MenuView {
             case 4: // save game
                 saveGame();
                 break;
-            case 5:
+            case 5: // quit
                 System.out.println("Thanks for playing ... goodbye.");
         }
 
@@ -130,36 +130,25 @@ public class MainMenuView extends MenuView {
  // Parameters: none
  // Returns: none
  // ===================================     
-     public void startSavedGame()
- {        
-       // get rid of nl character left in the stream
-        int value1;
-        String value2 = null;
+     public void startSavedGame(){        
+        String value;
+        // prompt user and get a file path
         System.out.println("Enter your saved Game name: ");
-        value2 = keyboard.next();
-        //value1 = input.nextInt();
-       // prompt user and get a file path
-        
-      // call the getSavedGame( ) method in the GameControl class to load the game
-      GameControl.getSavedGame(value2);
- 
- 
-      // display the game menu for the loaded game
-      GameMenuView gmv = new GameMenuView();
-      gmv.displayMenu();
+        value = keyboard.next();
+        // call the getSavedGame( ) method in the GameControl class to load the game
+        GameControl.getSavedGame(value);
+        // display the game menu for the loaded game
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenu();
 }
      
-    public void saveGame(){   
-        int value1;   
-        String value = null;  
-        // get rid of nl character left in the stream
-        //value1 = input.nextInt();
+    public void saveGame(){     
+        String value;  
         // prompt user and get a file path
         System.out.println("Enter the name to save your game: ");
         value = keyboard.next();
         // call the SaveGame( ) method in the GameControl class to load the game
         GameControl.setSaveGame(value);
-        System.out.println("Game saved As: "+ value);
         // display the game menu for the loaded game
         GameMenuView gmv = new GameMenuView();
         gmv.displayMenu();

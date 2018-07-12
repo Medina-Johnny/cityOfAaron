@@ -68,7 +68,7 @@ public abstract class MenuView implements ViewInterface
             // if it is not a valid value, output an error message
             if(userInput < 1 || userInput > max)
             {
-                System.out.println("\noption must be between 1 and" + max);
+                System.out.println("\noption must be between 1 and " + max);
             }
             
         // loop back to the top if input was not valid         
