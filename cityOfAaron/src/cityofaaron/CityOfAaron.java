@@ -4,6 +4,7 @@
  */
 package cityOfAaron;
 import byui.cit260.cityOfAaron.model.Game;
+import static jdk.nashorn.tools.ShellFunctions.input;
 import view.*;
 
 
@@ -36,6 +37,20 @@ public class CityOfAaron {
        
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenu();
+        
+        /*int value1;
+        String value2;
+        System.out.println("Enter a number: ");
+        value1 = input.nextInt();
+
+        // dummy nextLine() read nl character left in the stream
+        //input.nextLine();
+
+        System.out.println(“Enter a string value: “);
+        value2 = input.nextLine();
+        System.out.println(value1);
+        System.out.println(value2);*/
+
     }
     
     

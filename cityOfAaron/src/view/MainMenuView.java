@@ -12,6 +12,7 @@ import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.Game;
 import cityOfAaron.CityOfAaron;
 import java.util.Scanner;
+import static jdk.nashorn.tools.ShellFunctions.input;
 
 
 
@@ -59,14 +60,14 @@ public class MainMenuView extends MenuView {
                 startNewGame();
                 break;
             case 2: // get and start a saved game
-                //startSavedGame();
+                startSavedGame();
                 break;
             case 3: // get help menu
                 HelpMenuView hmv = new HelpMenuView();
                 hmv.displayMenu();
                 break;
             case 4: // save game
-                //displaySaveGameView();
+                saveGame();
                 break;
             case 5:
                 System.out.println("Thanks for playing ... goodbye.");
@@ -121,99 +122,46 @@ public class MainMenuView extends MenuView {
         GameMenuView gmv = new GameMenuView();
         gmv.displayMenu();
 
-       
-        
-        //Create a new Game object.
-        /*Game theGame = new Game();
-
-        // Save a reference to it in the GameProject class.
-        CityOfAaron.setTheGame(theGame);
-
-        // Display the Banner Page.
-        System.out.println("\nWelcome to the city of Aaron.");
-
-        // Create a new Player object
-        Player thePlayer = new Player();
-
-        // Prompt for and get the user’s name.
-        String name;
-        System.out.println("\nPlease type in your first name: ");
-        name = keyboard.next();
-
-        // Save the user’s name in the Player object
-        thePlayer.setName(name);
-
-        // Save a reference to the player object in the Game object
-        theGame.setThePlayer(name);
-
-        // Display a welcome message
-        System.out.println("\nWelcome " + name + " have fun.");
-
-        // Create a CropData object, 
-       CropData cropData = new CropData();
-
-        // initialize it
-        cropData.setYear(0);
-        cropData.setPopulation(100);
-        cropData.setNewPeople(5);
-        cropData.setCropYield(3);
-        cropData.setNumberWhoDied(0);
-        cropData.setOffering(10);
-        cropData.setWheatInStore(2700);
-        cropData.setAcresOwned(1000);
-        cropData.setAcresPlanted(1000);
-        cropData.setHarvest(3000);
-        cropData.setOfferingBushels(300);
-        cropData.setAcresPlanted(1000); 
-        
-         // save a reference to it in the Game 
-        theGame.setCrop(cropData);
-
-// Display the Game menu
-                       
-        GameMenuView gmv = new GameMenuView();
-        gmv.displayMenu();
- 
-    }
- 
-    
-    
-    // The startSavedGame method
-    // Purpose: creates game object and saves the game
-    // Parameters: none
-    // Returns: none
-    // ===================================     
-    public void startSavedGame()
-    {
-        System.out.println("\nStart saved game option selected.");
-    }
-
-    
-    
-    // The displayHelpMenuView method
-    // Purpose: creates game object and displays the help menu.
-    // Parameters: none
-    // Returns: none
-    // ===================================     
-    public void displayHelpMenuView()
-    {
-        System.out.println("\nDisplay help menu option selected.");
-    }
-        
-    
-    
-    // The displaySaveMenuView method
-    // Purpose: creates game object and displays the save game menu.
-    // Parameters: none
-    // Returns: none
-    // ===================================
-    
-         
-    public void displaySaveGameView()
-    {
-        System.out.println("\nDisplay save game option selected.");
-    }
-  */  
 
 }
+    
+    // The startSavedGame method
+ // Purpose: loads a saved game object from disk and start the game
+ // Parameters: none
+ // Returns: none
+ // ===================================     
+     public void startSavedGame()
+ {        
+       // get rid of nl character left in the stream
+        int value1;
+        String value2 = null;
+        System.out.println("Enter your saved Game name: ");
+        value2 = keyboard.next();
+        //value1 = input.nextInt();
+       // prompt user and get a file path
+        
+      // call the getSavedGame( ) method in the GameControl class to load the game
+      GameControl.getSavedGame(value2);
+ 
+ 
+      // display the game menu for the loaded game
+      GameMenuView gmv = new GameMenuView();
+      gmv.displayMenu();
+}
+     
+    public void saveGame(){   
+        int value1;   
+        String value = null;  
+        // get rid of nl character left in the stream
+        //value1 = input.nextInt();
+        // prompt user and get a file path
+        System.out.println("Enter the name to save your game: ");
+        value = keyboard.next();
+        // call the SaveGame( ) method in the GameControl class to load the game
+        GameControl.setSaveGame(value);
+        System.out.println("Game saved As: "+ value);
+        // display the game menu for the loaded game
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenu();
+}    
 }

@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package byui.cit260.cityOfAaron.model;
-
+import java.io.Serializable;
 /**
  *
  * @author JIMENEZ'S
  */
-public class Map {
+public class Map implements Serializable{
  
      private int rowCount;              // stores the number of rows 
      private int colCount;              // stores the number of columns
