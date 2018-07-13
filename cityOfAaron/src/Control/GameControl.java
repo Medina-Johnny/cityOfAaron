@@ -173,11 +173,11 @@ public class GameControl{
     // Returns: none
     // Side Effect: the game reference in the driver is updated
     public static void getSavedGame(String filePath){
-        Game theGame = null;
+        //Game theGame = null;
         try (FileInputStream fips = new FileInputStream(filePath)){
             ObjectInputStream input = new ObjectInputStream(fips);
             theGame = (Game)  input.readObject();
-            CityOfAaron.setTheGame(theGame);
+            //CityOfAaron.setTheGame(theGame);
         }
         catch(Exception e)
         {
@@ -191,12 +191,12 @@ public class GameControl{
     // Side Effect: the game reference in the driver is updated 
     }
     public static void setSaveGame(String filePath){
-        Game theGame = null;
+       //Game theGame = null;
         try (FileOutputStream fips = new FileOutputStream(filePath))
         {
             ObjectOutputStream output = new ObjectOutputStream(fips);
             output.writeObject(theGame);
-            CityOfAaron.setTheGame(theGame);
+            //CityOfAaron.setTheGame(theGame);
         }
         catch(Exception e)
         {
