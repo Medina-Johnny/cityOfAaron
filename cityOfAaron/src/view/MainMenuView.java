@@ -147,7 +147,7 @@ public class MainMenuView extends MenuView {
         // prompt user and get a file path
         System.out.println("Enter the name to save your game: ");
         value = keyboard.next();
-        // call the SaveGame( ) method in the GameControl class to load the game
+        // call the setSaveGame( ) method in the GameControl class to save the game
         GameControl.setSaveGame(value);
         // display the game menu for the loaded game
         GameMenuView gmv = new GameMenuView();
