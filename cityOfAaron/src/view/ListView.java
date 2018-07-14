@@ -90,7 +90,8 @@ public class ListView extends MenuView {
         for (int i=0; i<provisions.size(); i++){
         ListItem li = provisions.get(i);   // get the list item from the ArrayList
         System.out.println(li.getName( ) + ": " + li.getNumber( ) );
-    }
+            
+        }
     
    }
 }
