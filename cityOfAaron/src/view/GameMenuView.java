@@ -70,7 +70,7 @@ public class GameMenuView extends MenuView{
     
     public void viewList (){
           
-    ListView lv = new ListView();
+    PrintListMenuView lv = new PrintListMenuView();
     lv.displayMenu();
 
     }
