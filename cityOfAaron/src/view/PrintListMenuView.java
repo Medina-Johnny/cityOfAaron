@@ -131,6 +131,41 @@ public class PrintListMenuView extends MenuView{
     }
     private void provisionsStoreHouse() {
         System.out.println("\nDisplay provisions in the storehouse");
+    
+    // declare a string to hold the file name
+        String value;
+
+        // prompt the user for a file name, get and save the user’s input
+        System.out.println("Enter File Name to save: ");
+        value = keyboard.next();
+        
+        // create the PrintWriter object
+        try (PrintWriter out = new PrintWriter(value)){
+             
+             // get a reference to the ArrayList you want to output
+             provisions = theGame.getProvisions();
+             // output a heading for the report
+            out.println("\n\n   Provision List Report   \n\n");
+            
+                // use a for loop to get array animal list
+                for (int i=0;i<provisions.size();i++){
+                ListItem li = provisions.get(i);
+                
+                // and output it
+                out.println(li.getName( ) + ": " + li.getNumber( ) );
+                }
+        
+        }
+        catch(Exception e){
+            // output error message
+            System.out.println("\nThere was an error saveing file");
+        }
+        
+        finally{
+            //printWriter.close ();
+        }
+    
+        
     }
     private void authorsGame() {
         System.out.println("\nDisplay authors of the game");
