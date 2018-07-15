@@ -8,6 +8,9 @@ import Control.*;
 import byui.cit260.cityOfAaron.model.*;
 import cityOfAaron.CityOfAaron;
 import exceptions.CropException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -169,12 +172,5 @@ public static void displayCropsReportView()
     // add calls to the other crop view methods
     // as they are written
 }
-
-    
-
-
-
-
-
 
 }

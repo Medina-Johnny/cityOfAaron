@@ -8,8 +8,10 @@ package view;
 import Control.*;
 import byui.cit260.cityOfAaron.model.*;
 import cityOfAaron.CityOfAaron;
+import exceptions.CropException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -37,7 +39,7 @@ public class PrintListMenuView extends MenuView{
             " 3 - List or view the provisions in the storehouse\n" +
             " 4 - List or view the authors of this game\n" +
             " 5 - Return to game menu\n",
-
+            
         6);
     }
     
@@ -53,8 +55,10 @@ public class PrintListMenuView extends MenuView{
             case 1: // Print the animals in storehouse
                 printAnimals();
                 break;
-            case 2: // show the tools in storehouse
-                toolsStoreHouse ();
+            case 2: 
+                // show the tools in storehouse
+                choiceTools ();
+             
                 break;
             case 3: // Show the provisions in the storehouse
                 provisionsStoreHouse();
@@ -68,8 +72,11 @@ public class PrintListMenuView extends MenuView{
             break;
             case 6: {
                 saveAnimals(); // save the animals in storehouse
-            
-        }    
+            break;
+        } 
+            case 7: 
+                saveTools(); // save the tools in storehouse
+            break;
         }
     }
 
@@ -126,9 +133,57 @@ public class PrintListMenuView extends MenuView{
         }
     }
     
-    private void toolsStoreHouse() {
-        System.out.println("\nDisplay tools in the storehouse");
+    private void choiceTools() {
+        int value;
+        System.out.println("Enter 0 to view the tools list or 1 to save the tools list in a file ");
+        value = keyboard.nextInt();
+        if (value == 0){
+           toolsStoreHouse(); 
+        }
+        if (value == 1){
+            saveTools();
+        }
+         else
+            System.out.println("It is not a valid value");
+            
     }
+    
+    private void toolsStoreHouse() {
+        tools = theGame.getTools();
+        for (int i=0; i<tools.size(); i++){
+        ListItem li = tools.get(i);   // get the list item from the ArrayList
+        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
+    
+        }
+    }
+    
+    private void saveTools(){
+       
+       //Declare a string to hold the file name
+    String outLocation;
+    //Prompt the user for a file name, get and save the user input
+    System.out.println("Please enter file name");
+    outLocation = keyboard.next();
+    
+    try (PrintWriter out = new PrintWriter(outLocation))
+    {
+     //output a heading for the report
+        out.println("\n\n                   List Report");
+        out.printf("%n%-20s%10s",  "Description","Quantity");
+        out.printf("%n%-20s%10s",  "-----------","--------");
+     //use a loop to get the data from array list and output
+       for (ListItem Tools : tools) {
+           out.printf("%n%-20s%7d", Tools.getName(),Tools.getNumber());
+    }
+    }
+    catch (IOException ex)
+    {
+       
+               System.out.println("I/O Error: " + ex.getMessage());
+    }
+    }
+    
+    
     private void provisionsStoreHouse() {
         System.out.println("\nDisplay provisions in the storehouse");
     

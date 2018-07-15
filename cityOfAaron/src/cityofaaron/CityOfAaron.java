@@ -4,6 +4,8 @@
  */
 package cityOfAaron;
 import byui.cit260.cityOfAaron.model.Game;
+import java.io.IOException;
+import java.io.PrintWriter;
 import static jdk.nashorn.tools.ShellFunctions.input;
 import view.*;
 
@@ -20,7 +22,15 @@ import byui.cit260.cityOfAaron.model.TeamMember;*/
 public class CityOfAaron {
     // variable for keeping a reference to the Game object
     private static Game theGame = null;
+    private static PrintWriter outFile = null;
 
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        CityOfAaron.outFile = outFile;
+    }
     public static Game getTheGame() {
         return theGame;
     }
@@ -35,8 +45,33 @@ public class CityOfAaron {
     // runs the main menu
     public static void main(String[] args) {
        
-        MainMenuView mmv = new MainMenuView();
+        try 
+        {
+            CityOfAaron.outFile = new PrintWriter(System.out, true);
+            MainMenuView mmv = new MainMenuView();
         mmv.displayMenu();
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.toString()+
+                               "/nCause: " + e.getCause()+
+                               "Message: " + e.getMessage());
+            e.printStackTrace();;
+           /* finally {
+                try 
+                    {
+                      if (CityOfAaron.outFile != null)
+                          CityOfAaron.outFile.close();
+                    }catch (IOException ex) {
+                    System.out.println("Error to close file");
+                    return;
+                    }
+                   
+                    }*/
+        }
+        
+        
+        
+        
+        
         
         /*int value1;
         String value2;
