@@ -5,18 +5,11 @@
 //-----------------------------------------------------------
 package view;
 
-import Control.*;
 import byui.cit260.cityOfAaron.model.*;
 import cityOfAaron.CityOfAaron;
-import exceptions.CropException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PrintListMenuView extends MenuView{
     private ArrayList<ListItem> animals;
@@ -33,14 +26,17 @@ public class PrintListMenuView extends MenuView{
             "*******************************************\n" +
             "* CITY OF AARON: DISPLAY/PRINT LIST MENU  *\n" +
             "*******************************************\n" +
-            " 1 - Print a list of the animals in the storehouse\n" +
-            " 6 - Save a list of the animals in the storehouse\n" +    
-            " 2 - List or view the tools in the storehouse\n" +
-            " 3 - List or view the provisions in the storehouse\n" +
-            " 4 - List or view the authors of this game\n" +
-            " 5 - Return to game menu\n",
+            " 1 - Print a list of the animals in the storehouse\n" +   
+            " 2 - Print a list of the tools in the storehouse\n" +
+            " 3 - Print a list of the provisions in the storehouse\n" +
+            " 4 - Print a list of the authors of this game\n\n" +
+            " 5 - Save a list of the animals in the storehouse\n" +
+            " 6 - Save a list of the tools in the storehouse\n" +
+            " 7 - Save a list of the provisions in the storehouse\n" +
+            " 8 - Save a list of the authors of this game\n" +   
+            " 9 - Return to game menu\n",
             
-        6);
+        9);
     }
     
     // The doAction method
@@ -55,28 +51,32 @@ public class PrintListMenuView extends MenuView{
             case 1: // Print the animals in storehouse
                 printAnimals();
                 break;
-            case 2: 
-                // show the tools in storehouse
-                choiceTools ();
-             
+            case 2: // show the tools in storehouse
+                printTools ();
                 break;
             case 3: // Show the provisions in the storehouse
-                provisionsStoreHouse();
+                printProvisions();
                 break;
             case 4: // Display the game authors
-                authorsGame();
+                printAuthors();
                 break;
-            case 5: //Return to main menu
+            case 5: // Print the animals in storehouse
+                saveAnimals();
+                break;
+            case 6: // show the tools in storehouse
+                saveTools ();
+                break;
+            case 7: // Show the provisions in the storehouse
+                saveProvisions();
+                break;
+            case 8: // Display the game authors
+                saveAuthors();
+                break;
+            case 9: //Return to main menu
                 GameMenuView mmv = new GameMenuView();
                 mmv.displayMenu();
-            break;
-            case 6: {
-                saveAnimals(); // save the animals in storehouse
-            break;
-        } 
-            case 7: 
-                saveTools(); // save the tools in storehouse
-            break;
+                break;
+            
         }
     }
 
@@ -95,8 +95,6 @@ public class PrintListMenuView extends MenuView{
         
         }
         
-     
-    
     private void saveAnimals(){
 
         // declare a string to hold the file name
@@ -133,61 +131,74 @@ public class PrintListMenuView extends MenuView{
         }
     }
     
-    private void choiceTools() {
-        int value;
-        System.out.println("Enter 0 to view the tools list or 1 to save the tools list in a file ");
-        value = keyboard.nextInt();
-        if (value == 0){
-           toolsStoreHouse(); 
-        }
-        if (value == 1){
-            saveTools();
-        }
-         else
-            System.out.println("It is not a valid value");
+    private void printTools() {
+        
+             // Print Tools Heading
+            System.out.println("\n\n   Tools List Report   \n");
             
-    }
+                // use a for loop to get array tools list
+                tools = theGame.getTools();
+                for (int i=0;i<tools.size();i++){
+                    ListItem li = tools.get(i);
+                    // and output it
+                    System.out.println(li.getName( ) + " : " + li.getNumber( ) );
+                }
+        
+        }
     
-    private void toolsStoreHouse() {
-        tools = theGame.getTools();
-        for (int i=0; i<tools.size(); i++){
-        ListItem li = tools.get(i);   // get the list item from the ArrayList
-        System.out.println(li.getName( ) + ": " + li.getNumber( ) );
-    
+    private void saveTools() {
+        // declare a string to hold the file name
+        String value;
+
+        // prompt the user for a file name, get and save the user’s input
+        System.out.println("Enter File Name to save: ");
+        value = keyboard.next();
+        
+        // create the PrintWriter object
+        try (PrintWriter out = new PrintWriter(value)){
+             
+             // get a reference to the ArrayList you want to output
+             tools = theGame.getTools();
+             // output a heading for the report
+            out.println("\n\n   Tools List Report   \n\n");
+            
+                // use a for loop to get array Tools list
+                for (int i=0;i<tools.size();i++){
+                ListItem li = tools.get(i);
+                
+                // and output it
+                out.println(li.getName( ) + ": " + li.getNumber( ) );
+                }
+        
+        }
+        catch(Exception e){
+            // output error message
+            System.out.println("\nThere was an error saveing file");
+        }
+        
+        finally{
+            //printWriter.close ();
         }
     }
     
-    private void saveTools(){
-       
-       //Declare a string to hold the file name
-    String outLocation;
-    //Prompt the user for a file name, get and save the user input
-    System.out.println("Please enter file name");
-    outLocation = keyboard.next();
     
-    try (PrintWriter out = new PrintWriter(outLocation))
-    {
-     //output a heading for the report
-        out.println("\n\n                   List Report");
-        out.printf("%n%-20s%10s",  "Description","Quantity");
-        out.printf("%n%-20s%10s",  "-----------","--------");
-     //use a loop to get the data from array list and output
-       for (ListItem Tools : tools) {
-           out.printf("%n%-20s%7d", Tools.getName(),Tools.getNumber());
-    }
-    }
-    catch (IOException ex)
-    {
-       
-               System.out.println("I/O Error: " + ex.getMessage());
-    }
-    }
+    private void printProvisions() {
+        
+             // Print Tools Heading
+            System.out.println("\n\n   Provisions List Report   \n");
+            
+                // use a for loop to get array provisions list
+                provisions = theGame.getProvisions();
+                for (int i=0;i<provisions.size();i++){
+                    ListItem li = provisions.get(i);
+                    // and output it
+                    System.out.println(li.getName( ) + " : " + li.getNumber( ) );
+                }
+        
+        }
     
-    
-    private void provisionsStoreHouse() {
-        System.out.println("\nDisplay provisions in the storehouse");
-    
-    // declare a string to hold the file name
+    private void saveProvisions() {
+        // declare a string to hold the file name
         String value;
 
         // prompt the user for a file name, get and save the user’s input
@@ -200,9 +211,9 @@ public class PrintListMenuView extends MenuView{
              // get a reference to the ArrayList you want to output
              provisions = theGame.getProvisions();
              // output a heading for the report
-            out.println("\n\n   Provision List Report   \n\n");
+            out.println("\n\n   Provisions List Report   \n\n");
             
-                // use a for loop to get array animal list
+                // use a for loop to get array provisions list
                 for (int i=0;i<provisions.size();i++){
                 ListItem li = provisions.get(i);
                 
@@ -219,10 +230,13 @@ public class PrintListMenuView extends MenuView{
         finally{
             //printWriter.close ();
         }
-    
-        
     }
-    private void authorsGame() {
+    
+    private void printAuthors() {
+        System.out.println("\nPrint authors of the game");
+    }
+    
+    private void saveAuthors() {
         System.out.println("\nDisplay authors of the game");
     }
     
