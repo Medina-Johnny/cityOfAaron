@@ -28,6 +28,27 @@ public class GameMenuView extends MenuView{
         5);
     }
     
+    private final String displaytheMap = "\n"
+            + "\n--------------------------------------"
+            + "\n            ||View the Map||          "
+            + "\n--------------------------------------"
+            + "\n        1     2     3     4     5     "
+            + "\n      _____ _____ _____ _____ _____   "
+            + "\n   1 | oOo | oOo | !!! | !!! | ~~~ |  "
+            + "\n   2 | oOo | oOo | !!! | !!! | ~~~ |  "
+            + "\n   3 | ... | ... | !!! | !!! | ~~~ |  "
+            + "\n   4 | ... | ... | !!! | !!! | ~~~ |  "
+            + "\n   5 | ... | ... | !!! | !!! | ~~~ |  "
+            + "\n                                      "
+            + "\n   Key:                               "
+            + "\n   oOo - village                      "
+            + "\n   !!! - wheat                        "
+            + "\n   ~~~ - River                        "
+            + "\n   ... - desert                       "
+            + "\n--------------------------------------";  
+    
+       
+          
     // The doAction method
     // Purpose: performs the selected action
     // Parameters: none
@@ -38,6 +59,7 @@ public class GameMenuView extends MenuView{
         switch(option)
         {
             case 1: // create and start the map
+                System.out.println(displaytheMap);
                 theMap();
                 break;
             case 2: // get and start list menu
@@ -60,6 +82,8 @@ public class GameMenuView extends MenuView{
     {
         GameControl gc = new GameControl();
         GameControl.createMap();
+   
+       
     }
     
     public void newLocation()
