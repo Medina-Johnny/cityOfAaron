@@ -1,7 +1,7 @@
 // The HelpMenuView class - part of the view layer
 // Object of this class manages the help menu
-// Author: Jorge Trujillo
-// Date last modified: Jun 21 2018
+// Author: Johnny Medina
+// Date last modified: July 19 2018
 //----------------------------------------------------
 package view;
 import java.util.Scanner;
@@ -56,23 +56,48 @@ public HelpMenuView()
     }
     public void goalsTheGame()
     {
-        System.out.println("\nDisplay goals the game.");
+        System.out.println( "\n1 -              What are the goals of the game?\n" + 
+                            "The game consists of 10-year rounds wherein the player, has been summoned\n" +
+                            "by the High Priest to assume his role as ruler of\n" +
+                            "the city Aaron. The goals of the player are to strategically buy land, sell\n" +
+                            "land, determine how much wheat to plant each year,\n" +
+                            "and how much to set aside to feed the people. The player\n" +
+                            "will also be required to pay an annual tithe on the wheat\n" +
+                            "that is harvested. If the player fails to provide\n" +
+                            "enough wheat for the people to eat, people will die\n" +
+                            "and your workforce will be diminished. The player must plan very\n" +
+                            "carefully or it will be Game Over.\n");
     }
     public void whereCityAaron()
     {
-        System.out.println("\nDisplay where is City of Aaron.");
+        System.out.println( "\n2 -              Where is the city of Aaron??\n" +
+                            "According to The Book of Mormon,the city of Aaron was located in the Americas near Nephihah,\n" +
+                            "though constructed earlier. Prior to the construction of Nephihah, its nearest known neighbor was Moroni.\n" +
+                            "The book first tells of the city of Aaron when Alma, rejected at Ammonihah, took his journey toward the city of Aaron,\n" +
+                            "but he stopped and returned to Ammonihah.");
     }
     public void howViewMap()
     {
-        System.out.println("\nDisplay How I view the map.");
+        System.out.println("\n3                 How do I view the map?\n" +
+                           "Step one: Start a new game.\n" +
+                           "Step two: Enter your name.\n" +
+                           "Step Three: Type 1 in the Game Menu to view the map");
     }
     public void moveLocation()
     {
-        System.out.println("\nDisplay How I move the location .");
+        System.out.println("\n4                 How do I move to another location?\n" +
+                           "Step one: Start a new game.\n" +
+                           "Step two: Enter your name.\n" +
+                           "Step Three: Type 3 in the Game Menu to move to a new location.\n" +
+                           "Step Four: Enter the coordinates of the location you want to move to.\n");
     }
     public void displayList()
     {
-        System.out.println("\nDisplay list.");
+        System.out.println("\n5                 How do I display a list of animals, provisions and tools in the city storehouse?\n" +
+                           "Step one: Start a new game.\n" +
+                           "Step two: Enter your name.\n" +
+                           "Step Three: Type 2 in the Game Menu to view or print a list.\n" +
+                           "Step Four: In the DISPLAY/PRINT LIST MENU Type the number of the list you want to display or save.\n");
     }
 
 }
