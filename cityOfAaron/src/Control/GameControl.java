@@ -21,7 +21,6 @@ public class GameControl{
   // size of the Locations array
    private static final int MAX_ROW = 5;
    private static final int MAX_COL = 5;
-    
   // reference to a Game object
    private static Game theGame; 
    
@@ -46,6 +45,8 @@ public class GameControl{
         createProvisionList();
         // create the Locations and the Map object  
         createMap();
+        
+        firstLocation ();
         
         createCropDataObject();
     }
@@ -216,5 +217,12 @@ public class GameControl{
         {
             System.out.println("\nThere was an error writing the saved game file");
         }
+    }
+    public static void firstLocation (){
+    Player thePlayer = theGame.getThePlayer();
+    thePlayer.setRow(0);
+    thePlayer.setColumn(0);
+    theGame.setThePlayer(thePlayer);   
+        
     }
 }

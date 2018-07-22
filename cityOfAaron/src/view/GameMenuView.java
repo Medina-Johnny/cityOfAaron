@@ -6,11 +6,15 @@
 package view;
 
 import Control.*;
+import byui.cit260.cityOfAaron.model.*;
+import cityOfAaron.CityOfAaron;
+import exceptions.CropException;
 import java.util.Scanner;
-
+import java.io.IOException;
 
 public class GameMenuView extends MenuView{
     Scanner keyboard = new Scanner(System.in);
+    private static final Game theGame = CityOfAaron.getTheGame();
     
     public GameMenuView()
     {
@@ -43,8 +47,12 @@ public class GameMenuView extends MenuView{
             case 2: // get and start list menu
                 viewList();
                 break;
-            case 3: // get new loction
+            case 3: 
+            
+                // get new loction
                 newLocation();
+            
+        
                 break;
             case 4: // manage the crops
                cropView();
@@ -64,7 +72,71 @@ public class GameMenuView extends MenuView{
     
     public void newLocation()
     {
-        System.out.println("\nDisplay new location.");
+        
+        Player thePlayer = theGame.getThePlayer();
+        System.out.println("\nEnter the coordinates of the location you want to move to.");
+       
+    int xcor;
+    System.out.print("\nEnter the x-coordinate: ");
+         xcor = keyboard.nextInt();
+    if(xcor<0 || xcor>4){
+              
+              System.out.println("I am sorry master, I cannot do this.");
+          }
+    thePlayer.setColumn(xcor);
+    
+    int ycor;
+    System.out.print("\nEnter the y-coordinate: ");
+         ycor = keyboard.nextInt();
+    if(ycor<0 || ycor>4){
+              
+              System.out.println("I am sorry master, I cannot do this.");
+          }
+    thePlayer.setRow(ycor);
+    theGame.setThePlayer(thePlayer);
+    theGame.getTheMap();
+    
+    
+    
+        /* boolean paramsNotOkay;
+        do
+        {
+        paramsNotOkay=false;
+        System.out.print("\nEnter the x-coordinate: ");
+        xcor = keyboard.nextInt();
+        try{
+        if(xcor>=0 && xcor<4){
+        thePlayer.setColumn(xcor);
+        }
+        }
+        catch (Exception e)
+        {
+        System.out.println("I am sorry master, I cannot do this.");
+        // System.out.println(e.getMessage());
+        // paramsNotOkay = true;
+        }
+        }while(paramsNotOkay);
+        int ycor;
+        do
+        {
+        paramsNotOkay=false;
+        System.out.print("\nEnter the y-coordinate: ");
+        ycor = keyboard.nextInt();
+        try{
+        if(ycor>=0 && ycor<4){
+        thePlayer.setRow(ycor);
+        }
+        }
+        catch (CropException e)
+        {
+        System.out.println("I am sorry master, I cannot do this.");
+        // System.out.println(e.getMessage());
+        //paramsNotOkay = true;
+        }
+        }while(paramsNotOkay);
+        theGame.setThePlayer(thePlayer); */  
+       
+        
     }
     
     
@@ -76,8 +148,8 @@ public class GameMenuView extends MenuView{
     }
     
     public void cropView (){
-    CropView crop = new CropView();
-    CropView.runCropsView();      
+   // CropView crop = new CropView();
+   // CropView.runCropsView();      
     
 
     }
