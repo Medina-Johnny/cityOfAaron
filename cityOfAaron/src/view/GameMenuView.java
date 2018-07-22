@@ -94,7 +94,7 @@ public class GameMenuView extends MenuView{
           }
     thePlayer.setRow(ycor);
     theGame.setThePlayer(thePlayer);
-    theGame.getTheMap();
+    theGame.toString();
     
     
     
