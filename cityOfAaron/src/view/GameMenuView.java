@@ -32,6 +32,10 @@ public class GameMenuView extends MenuView{
         5);
     }
     
+    
+    
+       
+          
     // The doAction method
     // Purpose: performs the selected action
     // Parameters: none
@@ -68,6 +72,8 @@ public class GameMenuView extends MenuView{
     {
         GameControl gc = new GameControl();
         GameControl.createMap();
+   
+       
     }
     
     public void newLocation()

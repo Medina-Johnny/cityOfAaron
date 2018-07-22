@@ -93,18 +93,40 @@ public class GameControl{
     // Returns: none
     public static void createMap()   
     {
-        // create the Map object, it is 5 x 5
+        
+//private final String displaytheMap = "\n"
+//            + "\n--------------------------------------"
+//            + "\n            ||View the Map||          "
+//            + "\n--------------------------------------"
+//            + "\n        1     2     3     4     5     "
+//            + "\n      _____ _____ _____ _____ _____   "
+//            + "\n   1 | oOo | oOo | !!! | !!! | ~~~ |  "
+//            + "\n   2 | oOo | oOo | !!! | !!! | ~~~ |  "
+//            + "\n   3 | ... | ... | !!! | !!! | ~~~ |  "
+//            + "\n   4 | ... | ... | !!! | !!! | ~~~ |  "
+//            + "\n   5 | ... | ... | !!! | !!! | ~~~ |  "
+//            + "\n                                      "
+//            + "\n   Key:                               "
+//            + "\n   oOo - village                      "
+//            + "\n   !!! - wheat                        "
+//            + "\n   ~~~ - River                        "
+//            + "\n   ... - desert                       "
+//            + "\n--------------------------------------";  
+
+    // create the Map object, it is 5 x 5
         // refer to the Map constructor
-        Map theMap = new Map(MAX_ROW, MAX_COL);
+    Map theMap = new Map(MAX_ROW, MAX_COL);
 
-        // create a string that will go in the Location objects
-        // that contain the river
+    
+    
+    // create a string that will go in the Location objects
+    // that contain the river
     String river = "\nYou are on the River. The river is the source" +
-                      "\nof life for our city. The river marks the eastern " +
-                      "\nboundary of the city - it is wilderness to the East.";
+                   "\nof life for our city. The river marks the eastern " +
+                   "\nboundary of the city - it is wilderness to the East.";
 
-        // create a new Location object
-     Location loc = new Location();
+    // create a new Location object
+    Location loc = new Location();
 
         // use setters in the Location class to set the description and symbol
     loc.setDescription(river);
@@ -115,26 +137,52 @@ public class GameControl{
    {
         theMap.setLocation(i, 4, loc);
    }
-    // define the string for a farm land location
- String farmland = "\nYou are on the fertile banks of the River." +
- "\nIn the springthis low farmland floods and is covered with rich" +
- "\nnew soil. Wheat is planted as far as you can see."; 
+    
+    
+   // define the string for a farm land location
+   String farmland = "\nYou are on the fertile banks of the River." +
+   "\nIn the springthis low farmland floods and is covered with rich" +
+   "\nnew soil. Wheat is planted as far as you can see."; 
 
- // set a farmland location with a hint
- loc = new Location();
- loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
- loc.setSymbol("!!!");
- theMap.setLocation(0, 2, loc);
- // define the string for a barn location
- String barn = "\nYou are in the barn." +
- "\nHere is all the wheat that you need to live" +
- "\nplease use it carefully."; 
+   // set a farmland location with a hint
+   loc = new Location();
+   loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
+   loc.setSymbol("!!!");
+   theMap.setLocation(0, 2, loc);
+  
+   
+    //create a string that will discribe the the village
+    //and the place were you can go
+    String village = "\nYou are in the village. fill free to investigate" +
+                     "\nIs a small town. with many thing to do.";
+    
+    loc = new Location();
+    loc.setDescription(village);
+    loc.setSymbol("oOo");
+    theMap.setLocation(0, 0, loc);
+   
+    //Create string to navegate into the desert
+    //and a warning that is danger outside of the village
+    String desert = "\nYou are leaving the village and." +
+                     "\nEntering to the desert becareful." +
+                     "\nThere is not live in the desert.";
+   
+    loc = new Location();
+    loc.setDescription(desert);
+    loc.setSymbol("...");
+    theMap.setLocation(2, 2, loc);
+   
+   
+   // define the string for a barn location
+   String barn = "\nYou are in the barn." +
+   "\nHere is all the wheat that you need to live" +
+   "\nplease use it carefully."; 
 
- // set a barn location.
- loc = new Location();
- loc.setDescription(barn);
- loc.setSymbol("$$$");
- theMap.setLocation(2, 2, loc);
+   // set a barn location.
+   loc = new Location();
+   loc.setDescription(barn);
+   loc.setSymbol("$$$");
+   theMap.setLocation(2, 2, loc);
 
     theGame.setTheMap(theMap);
     }
